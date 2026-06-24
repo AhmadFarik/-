@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>دليل كتابة المقالة النقدية التحليلية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive-dark: #4a5e2a;
+    --olive-mid: #6b7c3f;
+    --olive-light: #c8d4a0;
+    --olive-pale: #e8efd4;
+    --olive-faint: #f4f7ea;
+    --burgundy: #7a2e2e;
+    --burgundy-light: #a84040;
+    --cream: #fafaf5;
+    --ink: #1e2210;
+    --ink-soft: #3a3f25;
+    --ink-muted: #6b7050;
+    --border: #d4dbb0;
+    --gold: #b8962e;
+    --gold-light: #e8d080;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    background: var(--olive-dark);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(184,150,46,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 80% 20%, rgba(200,212,160,0.12) 0%, transparent 60%);
+  }
+  .hero-dots {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 40px;
+  }
+  .hero-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(184,150,46,0.25);
+    border: 1px solid rgba(184,150,46,0.5);
+    color: var(--gold-light);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+  .hero-badge::before { content: '◈'; font-size: 10px; }
+  .hero h1 {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(26px, 5vw, 52px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+  .hero h1 span { color: var(--gold-light); }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.7;
+  }
+  .hero-logo-box {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .logo-dots {
+    display: grid;
+    grid-template-columns: repeat(3, 9px);
+    gap: 3px;
+  }
+  .logo-dot {
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--burgundy-light);
+  }
+  .logo-dot.lg { width: 11px; height: 11px; background: #c85555; }
+  .logo-bar { width: 32px; height: 4px; background: var(--burgundy-light); border-radius: 2px; margin-top: 2px; }
+
+  /* ===== GROUP INFO CARD ===== */
+  .group-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .group-name {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 900;
+    color: var(--gold-light);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .group-name::before {
+    content: '✦';
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .group-members {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .member-item {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .member-role {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+  .member-name {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.92);
+    display: block;
+    line-height: 1.4;
+  }
+
+  /* ===== NAV ===== */
+  .nav-strip {
+    background: var(--olive-mid);
+    border-bottom: 3px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-item {
+    color: rgba(255,255,255,0.8);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 12px 14px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-item:hover, .nav-item.active { color: #fff; border-bottom-color: var(--gold-light); background: rgba(255,255,255,0.05); }
+
+  /* ===== MAIN ===== */
+  .main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 16px;
+  }
+
+  /* ===== SECTION ===== */
+  .section { margin-bottom: 56px; }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-icon {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+    background: var(--olive-pale);
+    border: 1px solid var(--border);
+  }
+  .section-icon.burgundy { background: #fdf0f0; border-color: #e8c4c4; }
+  .section-icon.gold { background: #fdf8ec; border-color: #e8d4a0; }
+  .section-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    color: var(--olive-dark);
+    line-height: 1.3;
+  }
+  .section-subtitle { font-size: 13px; color: var(--ink-muted); margin-top: 3px; }
+
+  /* ===== TASK CARD ===== */
+  .task-card {
+    background: linear-gradient(135deg, var(--olive-dark) 0%, var(--olive-mid) 100%);
+    border-radius: 18px;
+    padding: 28px 28px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .task-card::after {
+    content: '✍';
+    position: absolute;
+    left: 20px;
+    bottom: -10px;
+    font-size: 70px;
+    opacity: 0.07;
+    line-height: 1;
+  }
+  .task-card h3 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+  .task-card p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.88);
+    font-weight: 300;
+  }
+  .task-card .word-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(184,150,46,0.3);
+    border: 1px solid rgba(184,150,46,0.5);
+    border-radius: 8px;
+    padding: 4px 14px;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-top: 14px;
+  }
+  .task-note {
+    margin-top: 16px;
+    padding: 12px 16px;
+    background: rgba(122,46,46,0.3);
+    border-right: 3px solid #e06060;
+    border-radius: 8px;
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.82);
+  }
+
+  /* ===== SOURCES ===== */
+  .sources-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .source-pill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 16px;
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+  }
+  .source-pill .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--olive-mid); flex-shrink: 0; }
+  .source-pill span { font-size: 14px; font-weight: 500; color: var(--ink-soft); line-height: 1.5; }
+
+  /* ===== GUIDE GRID ===== */
+  .guide-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 8px;
+  }
+  .guide-item {
+    background: var(--olive-faint);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 18px 16px;
+    position: relative;
+  }
+  .guide-num {
+    position: absolute;
+    top: -12px; right: 18px;
+    width: 26px; height: 26px;
+    background: var(--olive-dark);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cairo', sans-serif;
+  }
+  .guide-item p { font-size: 14px; line-height: 1.8; color: var(--ink-soft); margin-top: 4px; }
+  .guide-item strong { font-weight: 700; color: var(--olive-dark); display: block; font-size: 14px; margin-bottom: 4px; margin-top: 6px; }
+
+  /* ===== ALERT ===== */
+  .alert {
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .alert.warning { background: #fdf8ec; border: 1.5px solid var(--gold-light); color: #5a4a1a; }
+  .alert.danger { background: #fdf0f0; border: 1.5px solid #e8c4c4; color: #5a2020; }
+  .alert.info { background: var(--olive-faint); border: 1.5px solid var(--border); color: var(--ink-soft); }
+  .alert-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+
+  /* ===== ESSAY PROGRESS ===== */
+  .essay-progress {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin: 20px 0;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+  }
+  .progress-seg { flex: 1; padding: 14px 10px; text-align: center; position: relative; }
+  .progress-seg::after {
+    content: '';
+    position: absolute;
+    left: 0; top: 15%; bottom: 15%;
+    width: 1px;
+    background: rgba(255,255,255,0.3);
+  }
+  .progress-seg:last-child::after { display: none; }
+  .progress-seg.intro { background: #4a6b2e; }
+  .progress-seg.body1 { background: #5a7a38; }
+  .progress-seg.body2 { background: #6b8c45; }
+  .progress-seg.conc { background: #4a5e2a; }
+  .progress-seg .seg-title { color: rgba(255,255,255,0.9); font-size: 12px; font-weight: 700; display: block; }
+  .progress-seg .seg-words { color: var(--gold-light); font-size: 20px; font-weight: 900; font-family: 'Cairo', sans-serif; display: block; margin: 3px 0; }
+  .progress-seg .seg-pct { color: rgba(255,255,255,0.6); font-size: 11px; display: block; }
+
+  /* ===== ACCORDION (replaces tabs for mobile) ===== */
+  .accordion { border: 1.5px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .acc-item { border-bottom: 1px solid var(--border); }
+  .acc-item:last-child { border-bottom: none; }
+  .acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--olive-dark);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    gap: 12px;
+  }
+  .acc-header:hover { background: #3d4e24; }
+  .acc-title-wrap {}
+  .acc-name { color: white; font-size: 15px; font-weight: 700; display: block; }
+  .acc-words { color: var(--gold-light); font-size: 12px; font-weight: 400; display: block; margin-top: 2px; }
+  .acc-arrow {
+    color: var(--gold-light);
+    font-size: 18px;
+    transition: transform 0.3s;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .acc-item.open .acc-arrow { transform: rotate(180deg); }
+  .acc-body {
+    display: none;
+    background: white;
+    padding: 24px 20px;
+  }
+  .acc-item.open .acc-body { display: block; }
+  .acc-body h4 {
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--olive-dark);
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--olive-pale);
+  }
+  .acc-body h5 {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin: 16px 0 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .acc-body h5::before { content: '◆'; font-size: 9px; color: var(--gold); }
+  .acc-body p, .acc-body li { font-size: 14px; line-height: 1.85; color: var(--ink-soft); }
+  .acc-body ul { padding-right: 18px; margin: 8px 0; }
+  .acc-body li { margin-bottom: 6px; }
+  .word-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .word-badge.green { background: #e8f0d8; color: var(--olive-dark); }
+  .word-badge.blue { background: #e8eef8; color: #2d4a8a; }
+  .word-badge.orange { background: #fdf0e8; color: #8a4a2d; }
+  .word-badge.purple { background: #f0e8f8; color: #5a2d8a; }
+
+  /* ===== DETAIL TABLE (responsive) ===== */
+  .table-wrap { border-radius: 12px; overflow: hidden; border: 1.5px solid var(--border); margin-top: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { width: 100%; border-collapse: collapse; min-width: 480px; }
+  thead tr { background: var(--olive-dark); }
+  thead th { color: white; font-size: 13px; font-weight: 700; padding: 14px 16px; text-align: right; }
+  tbody tr:nth-child(even) { background: var(--olive-faint); }
+  tbody tr:nth-child(odd) { background: white; }
+  tbody tr:hover { background: var(--olive-pale); }
+  tbody td { padding: 12px 16px; font-size: 13px; color: var(--ink-soft); border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.7; }
+  tbody tr:last-child td { border-bottom: none; }
+  .td-label { font-weight: 700; color: var(--olive-dark); }
+  .td-words { font-weight: 800; color: var(--burgundy); font-family: 'Cairo', sans-serif; font-size: 15px; white-space: nowrap; }
+
+  /* ===== TIPS ===== */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .tip-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .tip-num {
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    background: var(--olive-dark);
+    color: white;
+    font-size: 13px; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-family: 'Cairo', sans-serif;
+  }
+  .tip-card p { font-size: 14px; line-height: 1.8; color: var(--ink-soft); }
+  .tip-card.highlight { border-color: #e0c870; background: #fdf9ec; }
+  .tip-card.highlight .tip-num { background: var(--gold); }
+
+  /* ===== VIOLATIONS (card-style for mobile) ===== */
+  .vio-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; border: 1.5px solid var(--border); margin-bottom: 12px; }
+  .vio-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+  .vio-table thead tr { background: var(--burgundy); }
+  .vio-table thead th { color: white; font-size: 13px; font-weight: 700; padding: 12px 14px; text-align: right; }
+  .vio-table tbody tr:nth-child(even) { background: #fdf8f8; }
+  .vio-table tbody tr:nth-child(odd) { background: white; }
+  .vio-table tbody td { padding: 11px 14px; font-size: 13px; color: var(--ink-soft); border-bottom: 1px solid #f0dede; vertical-align: top; line-height: 1.6; }
+  .vio-table tbody tr:last-child td { border-bottom: none; }
+  .vname { font-weight: 700; color: var(--burgundy); }
+  .penalty {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #fdf0f0; border: 1px solid #e8c4c4;
+    border-radius: 6px; padding: 3px 8px;
+    font-size: 12px; font-weight: 600; color: var(--burgundy);
+    white-space: nowrap;
+  }
+  .retry {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: #f0f8e8; border: 1px solid #c4e0a4;
+    border-radius: 6px; padding: 3px 8px;
+    font-size: 12px; font-weight: 600; color: var(--olive-dark);
+    white-space: nowrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--olive-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 13px;
+    border-top: 3px solid var(--gold);
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* ===== DESKTOP ENHANCEMENTS ===== */
+  @media (min-width: 640px) {
+    .hero-inner { padding: 64px 40px 52px; }
+    .sources-row { grid-template-columns: repeat(3, 1fr); }
+    .guide-grid { grid-template-columns: repeat(3, 1fr); }
+    .tips-grid { grid-template-columns: repeat(2, 1fr); }
+    .group-members { grid-template-columns: repeat(3, 1fr); }
+    .main { padding: 56px 40px; }
+    .nav-item { font-size: 13.5px; padding: 14px 18px; }
+  }
+  @media (min-width: 900px) {
+    .hero-inner { padding: 72px 48px 60px; }
+    .main { padding: 60px 48px; }
+  }
+  @media (max-width: 480px) {
+    .essay-progress { grid-template-columns: repeat(2, 1fr); }
+    .progress-seg { padding: 12px 8px; }
+    .group-members { grid-template-columns: 1fr; }
+    .hero-logo-box { width: 64px; height: 64px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-inner">
+    <div class="hero-top">
+      <div>
+        <div class="hero-badge">أكاديمية الملكة رانيا لتدريب المعلمين</div>
+        <h1>دليل كتابة المقالة<br><span>النقدية التحليلية</span></h1>
+        <p class="hero-sub">تقييم مساق أساسيات التعلم والتعليم — دليل شامل لكتابة مقالة نقدية تحليلية تعكس الفهم والمعرفة والتحليل الناقد</p>
+      </div>
+      <div class="hero-logo-box">
+        <div class="logo-dots">
+          <div class="logo-dot"></div><div class="logo-dot"></div><div class="logo-dot"></div>
+          <div class="logo-dot"></div><div class="logo-dot lg"></div><div class="logo-dot"></div>
+          <div class="logo-dot"></div><div class="logo-dot"></div><div class="logo-dot"></div>
+        </div>
+        <div class="logo-bar"></div>
+      </div>
+    </div>
+
+    <!-- GROUP CARD -->
+    <div class="group-card">
+      <div class="group-name">مجموعة أثر</div>
+      <div class="group-members">
+        <div class="member-item">
+          <span class="member-role">المعلم الطالب</span>
+          <span class="member-name">أحمد فضيل مشرف فرخ</span>
+        </div>
+        <div class="member-item">
+          <span class="member-role">مدرّس المعلمين</span>
+          <span class="member-name">الدكتور أحمد عساف</span>
+        </div>
+        <div class="member-item">
+          <span class="member-role">قائد الدفعة</span>
+          <span class="member-name">الدكتورة عروب الشوابكة</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-strip">
+  <div class="nav-inner">
+    <a class="nav-item" href="#task">📋 المهمة</a>
+    <a class="nav-item" href="#guidelines">📌 التوجيهات</a>
+    <a class="nav-item" href="#structure">🏗️ أجزاء المقالة</a>
+    <a class="nav-item" href="#table">📊 الجدول</a>
+    <a class="nav-item" href="#tips">💡 الإرشادات</a>
+    <a class="nav-item" href="#integrity">🎓 الصدق الأكاديمي</a>
+  </div>
+</nav>
+
+<main class="main">
+
+  <!-- SECTION 1: TASK -->
+  <section class="section" id="task">
+    <div class="section-header">
+      <div class="section-icon"><span>📋</span></div>
+      <div>
+        <h2 class="section-title">المهمة التقييمية</h2>
+        <p class="section-subtitle">ما الذي يُطلب منك كتابته؟</p>
+      </div>
+    </div>
+    <div class="task-card">
+      <h3>✍ المهمة</h3>
+      <p>كتابة مقالة نقدية تحليلية لمناقشة موضوع من موضوعات مساق أساسيات التعلم والتعليم، يظهر فيها الفهم والمعرفة والتحليل الناقد لجوانب الموضوع مع تقديم أدلة على هذا الفهم من الأدب التربوي والممارسات التدريسية في الخبرة المدرسية. ستعكس المقالة التطور المهني بالنسبة إلى نتاجات التعلم الواردة في دليل الدبلوم المهني بمساق أساسيات التعلم والتعليم.</p>
+      <div class="word-count">📝 1500 كلمة</div>
+      <div class="task-note">⚠️ <strong>ملحوظة مهمة:</strong> سيتم تقديم هذه المهمة كتقييم بنائي وختامي في مساق أساسيات التعلم والتعليم.</div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: GUIDELINES -->
+  <section class="section" id="guidelines">
+    <div class="section-header">
+      <div class="section-icon"><span>📌</span></div>
+      <div>
+        <h2 class="section-title">التوجيهات العامة</h2>
+        <p class="section-subtitle">ثلاثة محاور رئيسية يجب مراعاتها عند الكتابة</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:700;color:var(--olive-dark);margin-bottom:12px;">١. مصادر النقاش</h3>
+    <p style="font-size:14px;color:var(--ink-soft);margin-bottom:10px;">يجب أن تستند في مناقشة الموضوع إلى عدد من المصادر:</p>
+    <div class="sources-row">
+      <div class="source-pill"><div class="dot"></div><span>ما تعلمته في موضوعات أساسيات التعلم والتعليم</span></div>
+      <div class="source-pill"><div class="dot"></div><span>ما لاحظته وجرّبته أثناء الخبرة المدرسية والتدريس المصغر والخبرة الدراسية</span></div>
+      <div class="source-pill"><div class="dot"></div><span>الأدب التربوي المرتبط بموضوع المقالة</span></div>
+    </div>
+
+    <div style="height:28px"></div>
+    <h3 style="font-size:16px;font-weight:700;color:var(--olive-dark);margin-bottom:12px;">٢. أسلوب الكتابة</h3>
+    <div class="guide-grid">
+      <div class="guide-item">
+        <div class="guide-num">أ</div>
+        <strong>نقدية تحليلية نقاشية</strong>
+        <p>محكمة بالمنطق التربوي، تستند إلى أدب تربوي مرتبط، وتُظهر قدرتك على تحليل وتقييم الاقتباسات مع إظهار جوانب القوة والقصور فيه، ثم توليف هذه الاقتباسات للتوصل إلى استنتاجات شخصية.</p>
+      </div>
+      <div class="guide-item">
+        <div class="guide-num">ب</div>
+        <strong>نقدية تحليلية تأملية</strong>
+        <p>محكمة بأدلة من الخبرة المدرسية، وتُظهر قدرتك على تحليل وتقييم هذه الممارسات مع إظهار جوانب القوة والقصور فيها بناء على مناقشتك لموضوع المقالة وبمعايير المعلمين.</p>
+      </div>
+      <div class="guide-item">
+        <div class="guide-num">ج</div>
+        <strong>الأدب التربوي</strong>
+        <p>مناقشة الأدب التربوي لا يُفرد لها قسم محدد، بل تُدمج بشكل متوازن في جميع أجزاء المقالة.</p>
+      </div>
+    </div>
+
+    <div class="alert info" style="margin-top:20px">
+      <span class="alert-icon">📖</span>
+      <span>احرص على مناقشة الموضوع في المقالة بما يلبي مقاييس الدرجات التحصيلية للمعايير الأكاديمية والمهنية الخاصة بالدبلوم المهني في التعليم. ستحظى بتغذية راجعة على المقالة النقدية البنائية من مدرّس المعلمين، فاحرص على فهم هذه التغذية الراجعة وتوظيفها للاستجابة للتقييم الختامي.</span>
+    </div>
+  </section>
+
+  <!-- SECTION 3: STRUCTURE -->
+  <section class="section" id="structure">
+    <div class="section-header">
+      <div class="section-icon gold"><span>🏗️</span></div>
+      <div>
+        <h2 class="section-title">أجزاء المقالة الأربعة</h2>
+        <p class="section-subtitle">توزيع الكلمات والمحتوى لكل جزء</p>
+      </div>
+    </div>
+
+    <div class="essay-progress">
+      <div class="progress-seg intro">
+        <span class="seg-title">المقدمة</span>
+        <span class="seg-words">~300</span>
+        <span class="seg-pct">20%</span>
+      </div>
+      <div class="progress-seg body1">
+        <span class="seg-title">النقاش النقدي</span>
+        <span class="seg-words">~300</span>
+        <span class="seg-pct">20%</span>
+      </div>
+      <div class="progress-seg body2">
+        <span class="seg-title">تطوير الممارسة</span>
+        <span class="seg-words">~500</span>
+        <span class="seg-pct">33%</span>
+      </div>
+      <div class="progress-seg conc">
+        <span class="seg-title">الخاتمة</span>
+        <span class="seg-words">~400</span>
+        <span class="seg-pct">27%</span>
+      </div>
+    </div>
+
+    <!-- ACCORDION -->
+    <div class="accordion">
+
+      <!-- INTRO -->
+      <div class="acc-item open">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-title-wrap">
+            <span class="acc-name">١ — المقدمة</span>
+            <span class="acc-words">~300 كلمة</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="word-badge green">📝 ~300 كلمة</div>
+          <h4>المقدمة — طرح محاور النقاش الرئيسة</h4>
+          <p>تُقدّم المقدمةُ الحجةَ الرئيسة للمقالة، وهي الحجج المستخلصة من الموضوع المحوري الذي اخترته ومن محاور النقاش التي ستتوسع فيها لاحقاً.</p>
+          <h5>ما يجب أن تتضمنه المقدمة</h5>
+          <ul>
+            <li>توضيح ما الذي تسعى المقالة إلى برهنته أو استكشافه.</li>
+            <li>إظهار العلاقة بين الحجة والدبلوم وتجربتك المهنية خلاله.</li>
+            <li>شرح كيف سيتم بناء النقاش عليها في باقي أجزاء المقالة.</li>
+          </ul>
+          <h5>سبب الاختيار</h5>
+          <ul>
+            <li>ربطه بممارساتك الصفية / مشاهداتك.</li>
+            <li>التدريس المصغر والخبرة المدرسية.</li>
+            <li>خبرات التعلم والتعليم الشخصية.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- BODY 1 -->
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-title-wrap">
+            <span class="acc-name">٢أ — النقاش الناقد التحليلي التأملي</span>
+            <span class="acc-words">~300 كلمة</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="word-badge blue">📝 ~300 كلمة</div>
+          <h4>العرض — نقاش ناقد وتحليلي وتأملي</h4>
+          <p>يشتمل هذا القسم على تحليل نقدي معمّق للأفكار والمفاهيم الواردة في الأدبيات التربوية ذات الصلة بموضوع المقال.</p>
+          <h5>محتويات هذا القسم</h5>
+          <ul>
+            <li>مقارنة وجهات النظر من الأدب التربوي.</li>
+            <li>تقييم مدى توافقها أو تعارضها مع خبرتك المهنية.</li>
+            <li>توضيح أثر هذا الجدل المعرفي في تطوير فهمك لدورك كمعلم.</li>
+            <li>تقديم أحكام على الاقتباسات التربوية من حيث دقتها وشموليتها واتساقها.</li>
+          </ul>
+          <div class="alert warning">
+            <span class="alert-icon">⚠️</span>
+            <span>تجنّب توظيف الكثير من الاقتباسات. اجعل اقتباساتك محددة ومركزة ومرتبطة بموضوع المقالة.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BODY 2 -->
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-title-wrap">
+            <span class="acc-name">٢ب — تطوير الممارسة المهنية</span>
+            <span class="acc-words">~500 كلمة</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="word-badge orange">📝 ~500 كلمة</div>
+          <h4>العرض — تطوير الممارسة المهنية</h4>
+          <p>يركز هذا القسم على شرح كيفية تطور ممارستك المهنية خلال الدبلوم.</p>
+          <h5>متطلبات هذا القسم</h5>
+          <ul>
+            <li>تقديم شواهد عملية من صفوفك الدراسية.</li>
+            <li>ربطها بالمفاهيم والنظريات والمعايير المهنية.</li>
+            <li>توضيح التغيرات التي أجريتها: ما الذي تغير؟ ولماذا؟ وما أثره على تعلم الطلبة؟</li>
+            <li>قراءة نقدية للممارسات القديمة والجديدة.</li>
+          </ul>
+          <h5>المهارات المتوقعة</h5>
+          <ul>
+            <li>الربط بين النظرية والتطبيق.</li>
+            <li>تحديد المشكلات والتحديات وتقديم حلول واقعية.</li>
+            <li>عقد مقارنات بين الممارسات المختلفة وتقديم بدائل.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CONCLUSION -->
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-title-wrap">
+            <span class="acc-name">٣ — الخاتمة</span>
+            <span class="acc-words">~400 كلمة</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="word-badge purple">📝 ~400 كلمة</div>
+          <h4>الخاتمة — الاستنتاجات والتطوير المستقبلي</h4>
+          <p>تُقدّم الخاتمة ملخصاً لأهم النتائج التي توصلت إليها مع إبراز أثرها على تطوير ممارستك المهنية مستقبلاً.</p>
+          <h5>ما تتضمنه الخاتمة</h5>
+          <ul>
+            <li>تلخيص لأبرز الأفكار التي طرحتها في المقالة.</li>
+            <li>إشارة واضحة إلى كيفية توظيف هذه الاستنتاجات في ممارستك القادمة.</li>
+            <li>التحديات التي تحتاج إلى متابعة.</li>
+            <li>الأسئلة المهنية التي تظل مفتوحة أمامك للاستقصاء اللاحق.</li>
+          </ul>
+          <h5>التطوير المهني الذاتي</h5>
+          <p>وضع تصور للتطوير المهني الذاتي بشكل إجرائي وعملي وتقديم أفكار تطويرية للارتقاء بالتعلم والتعليم.</p>
+        </div>
+      </div>
+
+      <!-- REFS -->
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <div class="acc-title-wrap">
+            <span class="acc-name">قائمة المراجع</span>
+            <span class="acc-words">لا تُحتسب من عدد الكلمات</span>
+          </div>
+          <span class="acc-arrow">▼</span>
+        </div>
+        <div class="acc-body">
+          <div class="word-badge green">📚 لا تُحتسب</div>
+          <h4>قائمة المراجع — توثيق MLA</h4>
+          <p>توثيق قائمة المراجع بما يتوافق مع توثيق MLA في صفحة منفردة، مرتبة ترتيباً هجائياً.</p>
+          <h5>ترتيب المراجع</h5>
+          <ul>
+            <li>تبدأ بالمراجع باللغة العربية أولاً.</li>
+            <li>ثم تليها المراجع باللغة الإنجليزية.</li>
+            <li>تُرتَّب ترتيباً هجائياً داخل كل قسم.</li>
+          </ul>
+          <div class="alert info">
+            <span class="alert-icon">ℹ️</span>
+            <span>لا تُحتسب صفحة المراجع ضمن عدد كلمات المقالة البالغ 1500 كلمة.</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end accordion -->
+  </section>
+
+  <!-- SECTION 4: FULL TABLE -->
+  <section class="section" id="table">
+    <div class="section-header">
+      <div class="section-icon burgundy"><span>📊</span></div>
+      <div>
+        <h2 class="section-title">الجدول التفصيلي لأجزاء المقالة</h2>
+        <p class="section-subtitle">مرجع سريع لمحتوى كل قسم — مرّر يساراً على الهاتف لرؤية كامل الجدول</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:20%">القسم</th>
+            <th style="width:13%">عدد الكلمات</th>
+            <th>المحتويات التفصيلية</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-label">المقدمة<br><small style="font-weight:400;color:#888;font-size:12px">طرح محاور النقاش</small></td>
+            <td class="td-words">~300</td>
+            <td>
+              <ul style="padding-right:16px;font-size:13px;line-height:1.85">
+                <li>طرح القضية التربوية (محور النقاش) من خلال بناء حجة بالاستناد إلى موضوع المقالة والمحاور الفرعية التي يمكن صياغتها على شكل أسئلة.</li>
+                <li>سبب الاهتمام في الكتابة في هذا الموضوع: ربطه بممارساتك الصفية / مشاهداتك / التدريس المصغر / الخبرة المدرسية أو خبرات التعلم والتعليم.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-label">العرض<br><small style="font-weight:400;color:#888;font-size:12px">نقاش ناقد + تطوير الممارسة</small></td>
+            <td class="td-words">~800</td>
+            <td>
+              <ul style="padding-right:16px;font-size:13px;line-height:1.85">
+                <li>تطوير النقاش في القضية/الحجة المحددة في المقدمة ودعم فهمك لها باختيار الأدب التربوي ومناقشته.</li>
+                <li>تقديم أحكام على الاقتباسات التربوية من حيث دقتها وشموليتها واتساقها ومواطن القوة والقصور فيها والمقارنة بينها وتقديم تبريرات واضحة.</li>
+                <li>تقييم الاقتباسات من الأدب التربوي من حيث إظهار جوانب القوة والقصور في طرح القضية.</li>
+                <li>التوصل إلى استنتاجات شخصية تُظهر فيها معرفتك وفهمك للقضية موضوع النقاش وكيفية نقل هذا الفهم إلى حيز التطبيق.</li>
+                <li>توظيف المعرفة لتحليل الحجج والأدب التربوي والخبرات المهنية واستخلاص أهم الآراء والحقائق المرتبطة بالقضية بشكل موضوعي.</li>
+                <li>تكوين روابط وعلاقات منطقية بين جميع المحاور والأفكار المطروحة من الأدب التربوي والممارسات المهنية.</li>
+                <li>نقاش نقدي تأملي وتقييم للمعرفة المستقاة من التأمل في الممارسات المهنية المرتبطة بالقضية، وصفها وتحليلها وتقييمها وتحديد نقاط القوة ومجالات التحسين.</li>
+                <li>تحديد المشكلات والتحديات المرتبطة بالقضية وتقديم حلول واقعية بناء على المعرفة الجديدة التي تشكلت.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-label">الخاتمة</td>
+            <td class="td-words">~400</td>
+            <td>
+              <ul style="padding-right:16px;font-size:13px;line-height:1.85">
+                <li>تقديم ملخص لأهم الأفكار التي وردت في المقالة.</li>
+                <li>التوصل إلى استنتاجات خاصة مرتبطة بالقضية التي تمت مناقشتها وتكوين الرؤى والتصورات عنها.</li>
+                <li>وضع تصور للتطوير المهني الذاتي بشكل إجرائي وعملي وتقديم أفكار تطويرية للارتقاء بالتعلم والتعليم.</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td class="td-label">قائمة المراجع</td>
+            <td class="td-words" style="color:var(--ink-muted);font-size:13px">لا تُحتسب</td>
+            <td style="font-size:13px">توثيق قائمة المراجع بما يتوافق مع توثيق MLA في صفحة منفردة، مرتبة ترتيباً هجائياً. بدءاً بالمراجع باللغة العربية ثم المراجع باللغة الإنجليزية.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- SECTION 5: TIPS -->
+  <section class="section" id="tips">
+    <div class="section-header">
+      <div class="section-icon gold"><span>💡</span></div>
+      <div>
+        <h2 class="section-title">إرشادات مهمة</h2>
+        <p class="section-subtitle">تعليمات يجب مراعاتها قبل تسليم المقالة</p>
+      </div>
+    </div>
+    <div class="alert warning" style="margin-bottom:20px">
+      <span class="alert-icon">⚠️</span>
+      <span>تعتبر التوجيهات المذكورة في هذا الدليل إرشادات لمساعدتك على كتابة مقالتك بنجاح، وليس عليك اتباعها حرفياً.</span>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card highlight">
+        <div class="tip-num">١</div>
+        <p>قراءة دليل المعلم الطالب الخاص بالصدق الأكاديمي وسوء السلوك الأكاديمي وتتبع السياسة المنصوص عليها والعمل بها وتحري الأمانة العلمية متطلب هام قبل الشروع في الاستجابة عن المهمة.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">٢</div>
+        <p>التحقق من تلبية مقاييس الدرجات التحصيلية للمعايير الأكاديمية والمهنية الخاصة بالدبلوم المهني في التعليم قبل تسليم المقالة.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">٣</div>
+        <p>التأكد من الحفاظ على الخصوصية فلا تذكر أسماء الأشخاص والمدارس في مقالتك.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">٤</div>
+        <p>احرص على استخدام لغة أكاديمية أثناء الكتابة مع تجنب السرد والوصف، لذا ابدأ بتحليل عنوان المهمة، وحدد الحجة التي ستنطلق منها في الكتابة.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">٥</div>
+        <p>احرص على التسلسل المنطقي في عرض أفكارك، مع الحفاظ على الاتساق والترابط بين الفقرات والأفكار.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">٦</div>
+        <p>اكتب مسودتك الأولى ومن ثم راجعها بعناية للتأكد من وضوح اللغة وسلامة الصياغة، وتجنّب أية أخطاء إملائية أو لغوية أو نحوية.</p>
+      </div>
+      <div class="tip-card highlight">
+        <div class="tip-num">٧</div>
+        <p>عند كتابة التقييم الختامي احرص على الأخذ بعين الاهتمام التغذية الراجعة التي تلقيتها على التقييم التكويني.</p>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">٨</div>
+        <p>التأكد من عدد الكلمات بحيث لا تتجاوز أكثر من 10% زيادةً أو نقصاناً عن العدد المطلوب (1500 كلمة).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: INTEGRITY -->
+  <section class="section" id="integrity">
+    <div class="section-header">
+      <div class="section-icon burgundy"><span>🎓</span></div>
+      <div>
+        <h2 class="section-title">ملحق سياسة الصدق الأكاديمي</h2>
+        <p class="section-subtitle">المخالفات والعقوبات والإجراءات المترتبة عليها</p>
+      </div>
+    </div>
+
+    <div class="alert danger" style="margin-bottom:20px">
+      <span class="alert-icon">🚨</span>
+      <span>في حال تكرار المخالفة بعد إعادة التقديم، يُعدّ الطالب راسباً في الوحدة الرئيسة وقد يتم فصله من البرنامج بقرار مجلس الممتحنين.</span>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;color:var(--burgundy);margin-bottom:12px;display:flex;align-items:center;gap:8px">
+      <span>⚠️</span> أنواع المخالفات الأكاديمية
+    </h3>
+
+    <div class="vio-table-wrap">
+      <table class="vio-table">
+        <thead>
+          <tr>
+            <th>نوع المخالفة</th>
+            <th>الوصف</th>
+            <th>العقوبة المترتبة</th>
+            <th>إمكانية إعادة التقييم</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="vname">نسخ نص أو صور دون الاعتراف بالمصدر</td>
+            <td>استخدام محتوى من مصادر مختلفة دون توثيق أو اقتباس كافٍ</td>
+            <td><div class="penalty">رسوب (F أو 2.49)</div></td>
+            <td><div class="retry">إعادة × 1، بحد أقصى 3.0</div></td>
+          </tr>
+          <tr>
+            <td class="vname">نسب عمل شخص آخر أو أفكاره لنفسه</td>
+            <td>الادعاء بأن العمل أو الأفكار تعود للطالب دون الإشارة لصاحبها</td>
+            <td><div class="penalty">رسوب (F أو 2.49)</div></td>
+            <td><div class="retry">إعادة × 1، بحد أقصى 3.0</div></td>
+          </tr>
+          <tr>
+            <td class="vname">تقديم مهام أنتجها شخص آخر</td>
+            <td>تسليم عمل لم يقم الطالب بإنجازه بنفسه</td>
+            <td><div class="penalty">رسوب (F أو 2.49)</div></td>
+            <td><div class="retry">إعادة × 1، بحد أقصى 3.0</div></td>
+          </tr>
+          <tr>
+            <td class="vname">التواطؤ مع معلمين / طلبة آخرين</td>
+            <td>تقديم أعمال متطابقة أو متشابهة نتيجة تعاون غير مصرح به</td>
+            <td><div class="penalty">رسوب (F أو 2.49)</div></td>
+            <td><div class="retry">إعادة × 1، بحد أقصى 3.0</div></td>
+          </tr>
+          <tr>
+            <td class="vname">الغش في المهام التقييمية</td>
+            <td>استخدام وسائل غير مشروعة للحصول على ميزة غير عادلة</td>
+            <td><div class="penalty">رسوب (F أو 2.49)</div></td>
+            <td><div class="retry">إعادة × 1، بحد أقصى 3.0</div></td>
+          </tr>
+          <tr>
+            <td class="vname">تقديم بحوث غير حقيقية</td>
+            <td>إدراج بيانات أو نتائج مزيفة في العمل</td>
+            <td><div class="penalty">رسوب (F أو 2.49)</div></td>
+            <td><div class="retry">إعادة × 1، بحد أقصى 3.0</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;color:var(--olive-dark);margin:28px 0 12px;display:flex;align-items:center;gap:8px">
+      <span>⏰</span> عدم تقديم العمل في الموعد المحدد
+    </h3>
+    <div class="vio-table-wrap">
+      <table class="vio-table">
+        <thead>
+          <tr>
+            <th>نوع المخالفة</th>
+            <th>الوصف</th>
+            <th>العقوبة المترتبة</th>
+            <th>إمكانية إعادة التقييم</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="vname">عدم تقديم العمل في الموعد النهائي دون تقديم نموذج الظروف القاهرة</td>
+            <td>لم يقدم المعلم الطالب المهمة في الموعد النهائي ولم يقدم أي مبررات أو ظروف قاهرة</td>
+            <td><div class="penalty">تسجيل درجة راسب مع مراعاة القيود الواردة في أنظمة التقييم</div></td>
+            <td><div class="retry">يسمح بمحاولة ثانية وفق القيود المحددة</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:15px;font-weight:700;color:var(--burgundy);margin:28px 0 12px;display:flex;align-items:center;gap:8px">
+      <span>📛</span> الإخفاق في المساق بعد فرصة الإعادة
+    </h3>
+    <div class="vio-table-wrap">
+      <table class="vio-table">
+        <thead>
+          <tr>
+            <th>الحالة</th>
+            <th>الوصف</th>
+            <th>الإجراء المؤقت</th>
+            <th>المسؤوليات</th>
+            <th>إمكانية المحاولة الإضافية</th>
+            <th>سلطة القرار</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="vname">إخفاق في المساق بعد فرصة الإعادة</td>
+            <td>عدم تحقيق درجة 3.0 على الأقل (60% تحصيلي + 40% مهام أدائية) بعد الإعادة</td>
+            <td>يؤجَّل النظر في قرار الرسوب حتى نهاية البرنامج</td>
+            <td>استيفاء متطلبات النجاح في جميع المساقات الرئيسة الأخرى + تحقيق معايير المعلمين</td>
+            <td>يمكن لمجلس الممتحنين السماح بمحاولة إضافية لإعادة تقييم المساق بعد نهاية البرنامج</td>
+            <td>قرار المجلس يستند إلى دراسة الملف وتوصيات المشرف الأكاديمي ومدير البرنامج وبالتنسيق مع قائد ضبط الجودة</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  <strong>أكاديمية الملكة رانيا لتدريب المعلمين</strong><br>
+  <span style="color:var(--gold-light);font-size:15px;font-weight:700;margin-top:8px;display:block">مجموعة أثر</span>
+  <span style="opacity:0.5;font-size:12px;margin-top:4px;display:block">دليل كتابة المقالة النقدية التحليلية — مساق أساسيات التعلم والتعليم</span>
+</footer>
+
+<script>
+  function toggleAcc(header) {
+    const item = header.parentElement;
+    const isOpen = item.classList.contains('open');
+    item.classList.toggle('open', !isOpen);
+  }
+
+  // Highlight active nav on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-item');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navItems.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
